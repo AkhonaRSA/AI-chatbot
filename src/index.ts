@@ -1,3 +1,9 @@
-console.log(
-  "This is a starter kit for this amazing project. With 💓 By Indian Coders"
-);
+import express from "express"; 
+import {} from "dotenv";
+
+const app = express();
+
+app.listen(5000,() => {
+  console.log("Server open");
+}); 
+
