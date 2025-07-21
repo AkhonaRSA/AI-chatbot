@@ -1,9 +1,13 @@
-import express from "express"; 
-import {} from "dotenv";
+import app from "./app.js";
+import { connectToDatabase } from "./controllers/connection.js";
 
-const app = express();
+//open the application server once is already connected to the database. 
 
-app.listen(5000,() => {
-  console.log("Server open");
-}); 
+//connection and listeners 
+connectToDatabase()
+  .then(() => {
+    app.listen(5000,() => console.log("server running along with database successfully!"));
+  }
+)
 
+.catch((error) => console.log(error));
