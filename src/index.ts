@@ -1,12 +1,13 @@
 import app from "./app.js";
-import { connectToDatabase } from "./controllers/connection.js";
+import { connectToDatabase } from "./db/connection.js";
 
 //open the application server once is already connected to the database. 
 
 //connection and listeners 
+const PORT = process.env.PORT || 5000;
 connectToDatabase()
   .then(() => {
-    app.listen(5000,() => console.log("server running along with database successfully!"));
+    app.listen(PORT,() => console.log("connected to database and server just opened"));
   }
 )
 
